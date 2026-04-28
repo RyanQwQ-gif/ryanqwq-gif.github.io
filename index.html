@@ -3,262 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --accent-color: #3498db;
-            --bg-color: #f9f9f9;
-            --text-color: #333;
-            --logo-size: 120px; /* Added size for logo */
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav button {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.1rem;
-            margin: 0 15px;
-            cursor: pointer;
-            padding: 5px 10px;
-            transition: color 0.3s;
-        }
-
-        nav button:hover {
-            color: var(--accent-color);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            background: #fff;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-radius: 8px;
-        }
-
-        .page {
-            display: none;
-            padding: 2rem;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        h1, h2, h3 {
-            color: var(--primary-color);
-        }
-
-        /* Portrait styling for Page 1 */
-        .portrait-img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* ARCC poster styling for Page 2 */
-        .arcc-img {
-            width: 100%;
-            max-width: 900px;
-            height: auto;
-            margin-bottom: 2rem;
-            border: 1px solid #ddd;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Firestar logo styling for Page 2 */
-        .firestar-img-container {
-            text-align: center;
-            margin: 1rem 0 2rem;
-        }
-        .firestar-img {
-            width: 100%;
-            max-width: var(--logo-size);
-            height: auto;
-            display: inline-block;
-        }
-
-        .quote {
-            font-style: italic;
-            font-size: 1.2rem;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 1rem;
-            margin: 1.5rem 0;
-            color: var(--secondary-color);
-        }
-
-        .prompt-box {
-            background-color: #f1f1f1;
-            padding: 1.5rem;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-            max-height: 300px;
-            overflow-y: auto;
-            border: 1px solid #ccc;
-        }
-
-        .essay-content {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #eee;
-        }
-    </style>
+    <title>Ryan Wu — Personal Portfolio</title>
+    <meta name="description" content="Personal portfolio of Ryan Wu, an international student at HFI passionate about economics, AI, and civic engagement.">
+    <meta name="author" content="Ryan Wu">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon (inline SVG) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
 </head>
 <body>
 
-    <header>
+    <!-- Animated background orbs -->
+    <div class="bg-mesh" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- ===== HEADER / NAV ===== -->
+    <header id="site-header">
         <nav>
-            <button onclick="showPage('page1')">About Myself</button>
-            <button onclick="showPage('page2')">At HFI</button>
-            <button onclick="showPage('page3')">Writing Samples</button>
+            <div class="nav-logo">RW</div>
+            <div class="nav-links" id="nav-links">
+                <button id="nav-about" class="active" onclick="showPage('page1')">About</button>
+                <button id="nav-hfi" onclick="showPage('page2')">At HFI</button>
+                <button id="nav-writing" onclick="showPage('page3')">Writing</button>
+            </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">☰</button>
         </nav>
     </header>
 
-    <div class="container">
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+
+        <!-- ======== PAGE 1 — About Myself ======== -->
         <section id="page1" class="page active">
-            <h1>About Myself</h1>
-            
-            <img src="image_0.png" alt="My personal portrait" class="portrait-img">
 
-            <h2>Bio</h2>
-            <p>I'm a half-extrovert, multifaceted, and civic-minded international student at Huafu International (HFI), Guangzhou China. I'm a student interested in a variety of subjects, especially economics and Artificial Intelligence.</p>
-
-            <h2>Philosophy</h2>
-            <div class="quote">
-                "If you want it, then you'll have to take it."
+            <!-- Hero -->
+            <div class="hero">
+                <img src="image_0.png" alt="Portrait of Ryan Wu" class="hero-portrait">
+                <h1>Ryan Wu</h1>
+                <p class="hero-subtitle">International Student · Economics & AI Enthusiast · Civic Leader</p>
+                <div class="hero-tags">
+                    <span class="hero-tag">📍 Guangzhou, China</span>
+                    <span class="hero-tag">🏫 HFI</span>
+                    <span class="hero-tag">💡 Economics</span>
+                    <span class="hero-tag">🤖 Artificial Intelligence</span>
+                </div>
             </div>
 
-            <h2>Language Learning</h2>
-            <p>My experience of English learning started at 6. Since then, I've been passionate about communicating with foreign people using the "world language" -- English. I travelled to multiple cities across the world (e.g. Los Angeles, New York, Boston, Dubai, Seoul), and these traveling experience enabled me to understand and engage with foreign teenagers with diverse cultures and personal backgrounds.</p>
+            <!-- Bio -->
+            <div class="section-header reveal">
+                <h2>Bio</h2>
+            </div>
+            <div class="card reveal">
+                <p>I'm a half-extrovert, multifaceted, and civic-minded international student at Huafu International (HFI), Guangzhou China. I'm a student interested in a variety of subjects, especially economics and Artificial Intelligence.</p>
+            </div>
+
+            <!-- Philosophy -->
+            <div class="section-header reveal">
+                <h2>Philosophy</h2>
+            </div>
+            <div class="quote-block reveal">
+                <span class="quote-mark">"</span>
+                <p>If you want it, then you'll have to take it.</p>
+            </div>
+
+            <!-- Language Learning -->
+            <div class="section-header reveal">
+                <h2>Language Learning</h2>
+            </div>
+            <div class="card reveal">
+                <p>My experience of English learning started at 6. Since then, I've been passionate about communicating with foreign people using the "world language" — English. I travelled to multiple cities across the world (e.g. Los Angeles, New York, Boston, Dubai, Seoul), and these traveling experience enabled me to understand and engage with foreign teenagers with diverse cultures and personal backgrounds.</p>
+            </div>
+
+            <!-- Travel Cities -->
+            <div class="about-grid reveal">
+                <div class="card" style="text-align:center;">
+                    <h3><span class="icon">🌎</span> Americas</h3>
+                    <p>Los Angeles · New York · Boston</p>
+                </div>
+                <div class="card" style="text-align:center;">
+                    <h3><span class="icon">🌏</span> Asia &amp; Middle East</h3>
+                    <p>Dubai · Seoul · Guangzhou</p>
+                </div>
+            </div>
+
         </section>
 
+        <!-- ======== PAGE 2 — At HFI ======== -->
         <section id="page2" class="page">
-            <h1>At HFI</h1>
 
-            <h2>Club Experience</h2>
-            
-            <h3>Academic Resource and Collaboration Community (ARCC)</h3>
-            <img src="image_2.png" alt="ARCC's activity poster" class="arcc-img">
-            <p>As a co-founder of ARCC, I collaborate with my peers to foster academic communication at HFI. We organize seminars across a variety of interdisciplinary subjects and collect academic articles from anyone in school to post them online. We aim to create a free and open environment that inspires exchange of ideas and cultivate new thoughts and passions.</p>
-
-            <h3>Firestar</h3>
-            <div class="firestar-img-container">
-                <img src="image_1.png" alt="Firestar logo" class="firestar-img">
+            <div class="hero" style="padding-bottom:1rem;">
+                <h1>At HFI</h1>
+                <p class="hero-subtitle">Clubs, Community, and Creativity</p>
             </div>
-            <p>As the core member of Firestar, I call for student volunteers to conduct online teaching to rural students. We connect to rural primary schools in Hunan and give weekly sessions on mathematics, social sciences, environment, culture, and emotions. We hope that our effort can bridge the gap in education resources and open up a broader world to children in isolated rural villages.</p>
 
-            <hr style="margin: 2rem 0; border: 0; border-top: 1px solid #eee;">
+            <!-- Club Experience -->
+            <div class="section-header reveal">
+                <h2>Club Experience</h2>
+            </div>
 
-            <h2>Hobbies</h2>
-            
-            <h3>Singing</h3>
-            <p>I enjoy listening to C-pop musics as well as singing these songs out loud. My favorite singers are JJ Lin, David Tao, and Jay Chou. I also listen to a variety of other musical genres (e.g. classical pieces by Mozart and EDs of my favorite Japanese animes).</p>
+            <!-- ARCC -->
+            <div class="card reveal">
+                <h3><span class="icon">📚</span> Academic Resource and Collaboration Community (ARCC)</h3>
+                <img src="image_2.png" alt="ARCC activity poster" class="img-showcase" style="margin:1rem 0 1.25rem;">
+                <p>As a co-founder of ARCC, I collaborate with my peers to foster academic communication at HFI. We organize seminars across a variety of interdisciplinary subjects and collect academic articles from anyone in school to post them online. We aim to create a free and open environment that inspires exchange of ideas and cultivate new thoughts and passions.</p>
+            </div>
 
-            <h3>Writing</h3>
-            <p>The expression of my own voices on my life and the world would be the best reason why I enjoy writing. Via writing I am able to organize my thoughts in a structured and compelling way, and share them with people around me. Apart from common genres like arguments essays, I also enjoy writing poems and proses that are free and literary.</p>
+            <!-- Firestar -->
+            <div class="card reveal">
+                <h3><span class="icon">🔥</span> Firestar</h3>
+                <img src="image_1.png" alt="Firestar logo" class="img-logo">
+                <p>As the core member of Firestar, I call for student volunteers to conduct online teaching to rural students. We connect to rural primary schools in Hunan and give weekly sessions on mathematics, social sciences, environment, culture, and emotions. We hope that our effort can bridge the gap in education resources and open up a broader world to children in isolated rural villages.</p>
+            </div>
+
+            <!-- Divider -->
+            <div class="section-divider reveal">
+                <div class="line"></div>
+                <span>Hobbies</span>
+                <div class="line"></div>
+            </div>
+
+            <!-- Hobbies -->
+            <div class="about-grid reveal">
+                <div class="card">
+                    <h3><span class="icon">🎤</span> Singing</h3>
+                    <p>I enjoy listening to C-pop musics as well as singing these songs out loud. My favorite singers are JJ Lin, David Tao, and Jay Chou. I also listen to a variety of other musical genres (e.g. classical pieces by Mozart and EDs of my favorite Japanese animes).</p>
+                </div>
+                <div class="card">
+                    <h3><span class="icon">✍️</span> Writing</h3>
+                    <p>The expression of my own voices on my life and the world would be the best reason why I enjoy writing. Via writing I am able to organize my thoughts in a structured and compelling way, and share them with people around me. Apart from common genres like arguments essays, I also enjoy writing poems and proses that are free and literary.</p>
+                </div>
+            </div>
+
         </section>
 
+        <!-- ======== PAGE 3 — Writing Samples ======== -->
         <section id="page3" class="page">
-            <h1>Writing Samples</h1>
 
-            <div class="essay-content">
-                <h2>Synthesis Essay: The Locavore Movement</h2>
-                <div class="prompt-box">
-                    <strong>Prompt Context:</strong><br>
-                    Locavores are people who have decided to eat locally grown or produced products as much as possible. With an eye to nutrition as well as sustainability (resource use that preserves the environment), the locavore movement has become widespread over the past decade. Imagine that a community is considering organizing a locavore movement. Write an essay that synthesizes material from at least three of the provided sources and develops your position on the key issues associated with the locavore movement and examines their implications for the community.
-                </div>
-                
-                <p>Locavores, people who decided to consume locally grown food products as much as possible, have raised a widespread environmental and economic movement to advocate for local production and consumption of food. While communities supporting locavore movements contend that locally-produced crops cut down on the environmental costs and carbon footprints, one must be aware of related problems including concentration of population that limit the production of food locally and the economic costs done to nations dependent on food exports for revenue.</p>
-
-                <p>The concentration of population in urban areas constraints the extend to which local farms can produce sufficient food supplies. Paul Roberts, an expert in food industry, points out in his book The End of Food that, given that 80 percent of population the United States are urban dwellers, the price of producing food locally skyrocket due to constrained environmental circumstances and distant food production centers (Source E). The concentration of urban population and centralized food production forced the urban residents to search farther afield for available food supplies, because locally-produced meals are simply insufficient to consumers' demands. This circumstances apply similarly to developing countries like China, where the majority of population concentrates in the southeastern coastal and plain areas. Due to its geography, local communities in China have access to only limited amount and variety of vegatables and meat, making transportation of food supplies from further distance a necessity. Consequently, a community advocating for locavore movements must first carefully survey the environmental conditions and population concentration to determine if local supplies of food satisfy the demands from community members.</p>
-
-                <p>Locavores' consumption of food in the vicinity comes with the economic costs to other nations, who rely on exporting agricultural products for financial revenue. Forbes writer James E. McWilliams reveals that the reduced consumption of imported green beans poses significant threats to the livelihood of 1.5 million sub-Saharan farmers in countries like Kenya (Source B). While it makes sense for local food supporters in developed nations to reject food imports, disproportional economic damages are done to developing nations whose fundamental industry is agriculture. This further exacerbates the global inequality, since the economic development from agriculture to manufacturing of third-world nations is disrupted by the widespread locavore movements in first-world nations. Communities transitioning towards a locavore society must therefore assess the negative externalities to other communities once the transition has taken place.</p>
-
-                <p>Notwithstanding that locavore poses considerable pressure on food supplies and the global economy, critics often accentuate the environmental values of the locavore movements by reducing carbon emissions generated during the transportation of food products. For instance, a co-written Weblog by individuals interested in the benefits of being a locavore referred to a March 2005 study by Food Policy journal, which found that the traveling of organic food generates environmental damages outweighing the benefit of consuming organic (Source A). However, one should view the general environmental costs due to transportation more critically: statistics from the Consevation Magazine highlight the fact that the majoritiy of carbon emission associated with household food consumption is due to production, not transportation. This implies that, when accounting for a greater variety of food products, the effect on reducing transportation-related emissions is negligible.</p>
-
-                <p>Decisions ought to be made with careful considerations of economic, social, and environmental factors. Communities should balance the benefits and costs from multiple fields, while being aware of the externalities of each decision to other community members.</p>
+            <div class="hero" style="padding-bottom:1rem;">
+                <h1>Writing Samples</h1>
+                <p class="hero-subtitle">AP English Language &amp; Composition Essays</p>
             </div>
 
-            <div class="essay-content">
-                <h2>Rhetorical Analysis: Florence Kelley</h2>
-                <div class="prompt-box">
-                    <strong>Prompt Context:</strong><br>
-                    Florence Kelley (1859-1932) was a United States social worker and reformer who fought successfully for child labor laws and improved conditions for working women. She delivered a speech before the convention of the National American Woman Suffrage Association in Philadelphia on July 22, 1905. Write an essay that analyzes the rhetorical choices Kelley makes to convey her message about child labor to her audience.
+            <!-- Essay 1 — Synthesis -->
+            <div class="essay-card reveal" id="essay-1">
+                <div class="essay-header" onclick="toggleEssay('essay-1')">
+                    <h3><span class="icon">📝</span> Synthesis Essay: The Locavore Movement</h3>
+                    <span class="essay-chevron">▼</span>
                 </div>
-                
-                <p>During the Second Wave of Industrial Revolution, the disadvantaged working conditions for workers, especially for child and female workers, inspired persistent social movements in American society. Widespread social movements in Europe and in the United States advocated for great rights for workers and called for the prohibition of children from labor. Florence Kelley, a United States social worker fought for child labor laws and improved conditions for working, delievered the following speech before the convention of the National American Woman Suffrage Association; she extensively leveraged parallelism and contrasts to advocate for legislation regarding child labor and improved working conditions for women and children.</p>
+                <div class="essay-body">
+                    <div class="essay-body-inner">
+                        <div class="prompt-box">
+                            <strong>Prompt Context:</strong><br>
+                            Locavores are people who have decided to eat locally grown or produced products as much as possible. With an eye to nutrition as well as sustainability (resource use that preserves the environment), the locavore movement has become widespread over the past decade. Imagine that a community is considering organizing a locavore movement. Write an essay that synthesizes material from at least three of the provided sources and develops your position on the key issues associated with the locavore movement and examines their implications for the community.
+                        </div>
 
-                <p>The use of parallelism illustrates the prevelance of child labor and the cruel working conditions they suffer. At the begining of the speech, Kelley refers to the age structure and the workplaces of children workers by listing "age from six and seven yerars (in the cotton mills of Georgia) and eight, nine and ten years (in teh coal-breakers of Pennsylvania), to fourteen, fifteen and sixteen years in more enlightened states". Through the lens of an enlightened social thinkers, Kelley provides a list in parallel of children workers who were in different ages and worked in a great variety of states. By repeating multiple numbers and workplaces (e.g. "six and seven", "in the cotton mills of Georgia"), Kelley highlight the widespread child labor presence in the United States, through which she seeks to raise the awareness of American citizens to advocate against the phenomenon of child labor. Further in the later paragraphs, Kelley utilizes sentences with parallel structures to describe the working conditions of children workers: "The children make our shoes in shoe factories ... knit our stockings in knitting factories... spin and weave our cotton underwear in the cotton mills". The verb phrases (e.g. "knit our stockings" and "spin and weave our cotton underwear") in parallel emphasizes the variety of labor-intensive and physically demanding jobs that the children workers have to satisfy. By indicating the important roles of children workers in the American society and the suffering tasks they have to accomplish to make a living, Kelley aims to resonate the sympathy among her audience at the convention and call for actions to preserve the rights of the children and protect them from harmful physical labors. The employment of parallelism enables Kelley to describe the disadvantaged working conditions and the prevelance of such cruel phenonenon among multiple American states with similar phrases and sentences, serving the ultimate goal to advocate prohibition to child labor.</p>
+                        <p>Locavores, people who decided to consume locally grown food products as much as possible, have raised a widespread environmental and economic movement to advocate for local production and consumption of food. While communities supporting locavore movements contend that locally-produced crops cut down on the environmental costs and carbon footprints, one must be aware of related problems including concentration of population that limit the production of food locally and the economic costs done to nations dependent on food exports for revenue.</p>
 
-                <p>Kelley implements stark contrasts among different state policies and conditions for child labor. In the fourth paragraph of her speech, Kelley acclaimed the policies in Alabama which "provides that a child under sixteen years of age shall not work in a cotton mill at nigh longer than eight hours." She then concludes that Alabama "does better ... than any other southern states". This comment settles the stage for Kelley's contrast between Alabama and other northern and southern States in later paragraphs that in Georgia "there is no restriction whatever," that "New Jerset permits it all night long," and that in Pennsylvania "it was lawful for children ... to work twelve hours at night". Through the notable contrast between laws regarding child labor among different states, Kelley condenmed in a dismissive tone the lack of protection to the healthy beings of children in multiple nothern and southern states. She implies that such ignorance in legislation is immoral and cruel to the development of children who worked in cotton mills and factories. In the light of an empathetic and rational policy-maker, Kelley calling for further legal effort to promote complementary laws and social reforms against child labor.</p>
+                        <p>The concentration of population in urban areas constraints the extend to which local farms can produce sufficient food supplies. Paul Roberts, an expert in food industry, points out in his book The End of Food that, given that 80 percent of population the United States are urban dwellers, the price of producing food locally skyrocket due to constrained environmental circumstances and distant food production centers (Source E). The concentration of urban population and centralized food production forced the urban residents to search farther afield for available food supplies, because locally-produced meals are simply insufficient to consumers' demands. This circumstances apply similarly to developing countries like China, where the majority of population concentrates in the southeastern coastal and plain areas. Due to its geography, local communities in China have access to only limited amount and variety of vegatables and meat, making transportation of food supplies from further distance a necessity. Consequently, a community advocating for locavore movements must first carefully survey the environmental conditions and population concentration to determine if local supplies of food satisfy the demands from community members.</p>
 
-                <p>The strive for children protection against child labor is a persistent effort in the contemporary world, since this issue still persistent in developing countries in southeast Asia and the Middle East. Decision-makers must implement sympathy and rationality to question the legitimacy of such actions and to firmly support the development of basic civil rights over immoral exploitation of child labor.</p>
+                        <p>Locavores' consumption of food in the vicinity comes with the economic costs to other nations, who rely on exporting agricultural products for financial revenue. Forbes writer James E. McWilliams reveals that the reduced consumption of imported green beans poses significant threats to the livelihood of 1.5 million sub-Saharan farmers in countries like Kenya (Source B). While it makes sense for local food supporters in developed nations to reject food imports, disproportional economic damages are done to developing nations whose fundamental industry is agriculture. This further exacerbates the global inequality, since the economic development from agriculture to manufacturing of third-world nations is disrupted by the widespread locavore movements in first-world nations. Communities transitioning towards a locavore society must therefore assess the negative externalities to other communities once the transition has taken place.</p>
+
+                        <p>Notwithstanding that locavore poses considerable pressure on food supplies and the global economy, critics often accentuate the environmental values of the locavore movements by reducing carbon emissions generated during the transportation of food products. For instance, a co-written Weblog by individuals interested in the benefits of being a locavore referred to a March 2005 study by Food Policy journal, which found that the traveling of organic food generates environmental damages outweighing the benefit of consuming organic (Source A). However, one should view the general environmental costs due to transportation more critically: statistics from the Consevation Magazine highlight the fact that the majoritiy of carbon emission associated with household food consumption is due to production, not transportation. This implies that, when accounting for a greater variety of food products, the effect on reducing transportation-related emissions is negligible.</p>
+
+                        <p>Decisions ought to be made with careful considerations of economic, social, and environmental factors. Communities should balance the benefits and costs from multiple fields, while being aware of the externalities of each decision to other community members.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="essay-content">
-                <h2>Argument Essay: GenAI and Social Orders</h2>
-                <div class="prompt-box">
-                    <strong>Prompt Context:</strong><br>
-                    Contemporary life is marked by controversy. Choose a controversial local, national, or global issue with which you are familiar. Within this issue, consider any opposing positions, solutions, and compromises. Write an essay that argues your position on this controversy.
+            <!-- Essay 2 — Rhetorical Analysis -->
+            <div class="essay-card reveal" id="essay-2">
+                <div class="essay-header" onclick="toggleEssay('essay-2')">
+                    <h3><span class="icon">🔍</span> Rhetorical Analysis: Florence Kelley</h3>
+                    <span class="essay-chevron">▼</span>
                 </div>
-                
-                <p>With the development of generative Artifical Intelligence (GenAI) capable of image generation, code writing, and a variety of otehr intellectual tasks that previously only human can complete, debates on whether the advancements of GenAI will disrupt social orders via job replacements spread across the society. This essay argues that GenAI will not affect social orders, since AI tools can be leveraged to augment human production and task executive, and a wide spectrum of GenAI-proof tasks exist.</p>
+                <div class="essay-body">
+                    <div class="essay-body-inner">
+                        <div class="prompt-box">
+                            <strong>Prompt Context:</strong><br>
+                            Florence Kelley (1859-1932) was a United States social worker and reformer who fought successfully for child labor laws and improved conditions for working women. She delivered a speech before the convention of the National American Woman Suffrage Association in Philadelphia on July 22, 1905. Write an essay that analyzes the rhetorical choices Kelley makes to convey her message about child labor to her audience.
+                        </div>
 
-                <p>White-collar workers, in more cases, utilizes GenAI tools as an assistance for their occupations rather than an alternative that make them vulnerable to job replacement. For instance, AI-assisted coding applications, namely OpenAI's Codex and Anthropic's Claude Code, are capable to elevating an amateur developer to match a computer engineer with multiple years of project development experience. The AI tools augmented human capabilities to perform complex tasks in a short amount of time. Instead of fully replacing coders, AI-assisted tools are designed to handle tedious code writing and database management, leaving the crucial role of steering and debugging to human programmers. Such a kind of augmentation is prevelant among all kinds of occupations: Open AI's report on AI and Job replacement in 2026 that studies every occupations in the United States reveals that while the majority of white-collar jobs are susceptible to AI influence, workers in these occupations have highly-flexible skillsets and are able to transfer to similar jobs with proper job retraining. This finding corroborates the conclusion that GenAI tools will augment rather than replace intellectual workers, who are highly adaptable to external influences and can switch jobs without social order disruptions.</p>
+                        <p>During the Second Wave of Industrial Revolution, the disadvantaged working conditions for workers, especially for child and female workers, inspired persistent social movements in American society. Widespread social movements in Europe and in the United States advocated for great rights for workers and called for the prohibition of children from labor. Florence Kelley, a United States social worker fought for child labor laws and improved conditions for working, delievered the following speech before the convention of the National American Woman Suffrage Association; she extensively leveraged parallelism and contrasts to advocate for legislation regarding child labor and improved working conditions for women and children.</p>
 
-                <p>Various tasks in contemporary societies are AI-proof, meaning that they are resistant to AI influence and cannot be replaced. These tasks, according to a 2025 economic paper on post-AI economy, include arts, literature, music, and other occupations withough tangible and quantifiable measurement of value. Not only will these tasks survive the GenAI influence, but they will also thrive in the AI era and earn a greater salary: as routine tasks are automated by AI agents, human provenance contained in artworks and musical pieces becomes greatly valuable. While website development with logical codings and measureable functions can be automated, the invaluable masterpiece of twentieth century artist Picasso cannot be placed by GenAI, as it conveys emotions and abstractions that cannot be measured with quantitative metrics.</p>
+                        <p>The use of parallelism illustrates the prevelance of child labor and the cruel working conditions they suffer. At the begining of the speech, Kelley refers to the age structure and the workplaces of children workers by listing "age from six and seven yerars (in the cotton mills of Georgia) and eight, nine and ten years (in teh coal-breakers of Pennsylvania), to fourteen, fifteen and sixteen years in more enlightened states". Through the lens of an enlightened social thinkers, Kelley provides a list in parallel of children workers who were in different ages and worked in a great variety of states. By repeating multiple numbers and workplaces (e.g. "six and seven", "in the cotton mills of Georgia"), Kelley highlight the widespread child labor presence in the United States, through which she seeks to raise the awareness of American citizens to advocate against the phenomenon of child labor. Further in the later paragraphs, Kelley utilizes sentences with parallel structures to describe the working conditions of children workers: "The children make our shoes in shoe factories ... knit our stockings in knitting factories... spin and weave our cotton underwear in the cotton mills". The verb phrases (e.g. "knit our stockings" and "spin and weave our cotton underwear") in parallel emphasizes the variety of labor-intensive and physically demanding jobs that the children workers have to satisfy. By indicating the important roles of children workers in the American society and the suffering tasks they have to accomplish to make a living, Kelley aims to resonate the sympathy among her audience at the convention and call for actions to preserve the rights of the children and protect them from harmful physical labors. The employment of parallelism enables Kelley to describe the disadvantaged working conditions and the prevelance of such cruel phenonenon among multiple American states with similar phrases and sentences, serving the ultimate goal to advocate prohibition to child labor.</p>
 
-                <p>Notwithstanding that GenAI tools will enhance productivitiy through augmentation and raise the value of human provenance in arts, literature, and music, critics contend that AI alignment issues, where principles of AI models disconnect with prevelant moral and legal values of human society, pose significant risks to social orders. For instance, a variety of literature on the academic databse Arxiv reveals that AI systems marginalize minority groups with special needs and culture, because the training data lack proportional representation of the voices from the minorities. However, these critics ignore the fact that academia are already propose practical solutions to policy-makers regarding AI misalignment issues. For instance, in the prestigious academic conference NeurlPS, where scholars and policy-makers discuss AI-related issues professionally, workshops regarding pluralism in AI systems publicize position and policy papers concerning the marginalization of social groups. It is expected that social structures will be adjusted following the expert suggestions to tackle Al misalignment without causing widespread social disruptions.</p>
+                        <p>Kelley implements stark contrasts among different state policies and conditions for child labor. In the fourth paragraph of her speech, Kelley acclaimed the policies in Alabama which "provides that a child under sixteen years of age shall not work in a cotton mill at nigh longer than eight hours." She then concludes that Alabama "does better ... than any other southern states". This comment settles the stage for Kelley's contrast between Alabama and other northern and southern States in later paragraphs that in Georgia "there is no restriction whatever," that "New Jerset permits it all night long," and that in Pennsylvania "it was lawful for children ... to work twelve hours at night". Through the notable contrast between laws regarding child labor among different states, Kelley condenmed in a dismissive tone the lack of protection to the healthy beings of children in multiple nothern and southern states. She implies that such ignorance in legislation is immoral and cruel to the development of children who worked in cotton mills and factories. In the light of an empathetic and rational policy-maker, Kelley calling for further legal effort to promote complementary laws and social reforms against child labor.</p>
 
-                <p>The wheels of technological development will continue to move forward throughout human history. Rather than rejecting such advancements, individuals must adapt to the reality by proactively acquiring necessary digital skills and knowledge in order to excel in the modern society.</p>
+                        <p>The strive for children protection against child labor is a persistent effort in the contemporary world, since this issue still persistent in developing countries in southeast Asia and the Middle East. Decision-makers must implement sympathy and rationality to question the legitimacy of such actions and to firmly support the development of basic civil rights over immoral exploitation of child labor.</p>
+                    </div>
+                </div>
             </div>
+
+            <!-- Essay 3 — Argument -->
+            <div class="essay-card reveal" id="essay-3">
+                <div class="essay-header" onclick="toggleEssay('essay-3')">
+                    <h3><span class="icon">💬</span> Argument Essay: GenAI and Social Orders</h3>
+                    <span class="essay-chevron">▼</span>
+                </div>
+                <div class="essay-body">
+                    <div class="essay-body-inner">
+                        <div class="prompt-box">
+                            <strong>Prompt Context:</strong><br>
+                            Contemporary life is marked by controversy. Choose a controversial local, national, or global issue with which you are familiar. Within this issue, consider any opposing positions, solutions, and compromises. Write an essay that argues your position on this controversy.
+                        </div>
+
+                        <p>With the development of generative Artifical Intelligence (GenAI) capable of image generation, code writing, and a variety of otehr intellectual tasks that previously only human can complete, debates on whether the advancements of GenAI will disrupt social orders via job replacements spread across the society. This essay argues that GenAI will not affect social orders, since AI tools can be leveraged to augment human production and task executive, and a wide spectrum of GenAI-proof tasks exist.</p>
+
+                        <p>White-collar workers, in more cases, utilizes GenAI tools as an assistance for their occupations rather than an alternative that make them vulnerable to job replacement. For instance, AI-assisted coding applications, namely OpenAI's Codex and Anthropic's Claude Code, are capable to elevating an amateur developer to match a computer engineer with multiple years of project development experience. The AI tools augmented human capabilities to perform complex tasks in a short amount of time. Instead of fully replacing coders, AI-assisted tools are designed to handle tedious code writing and database management, leaving the crucial role of steering and debugging to human programmers. Such a kind of augmentation is prevelant among all kinds of occupations: Open AI's report on AI and Job replacement in 2026 that studies every occupations in the United States reveals that while the majority of white-collar jobs are susceptible to AI influence, workers in these occupations have highly-flexible skillsets and are able to transfer to similar jobs with proper job retraining. This finding corroborates the conclusion that GenAI tools will augment rather than replace intellectual workers, who are highly adaptable to external influences and can switch jobs without social order disruptions.</p>
+
+                        <p>Various tasks in contemporary societies are AI-proof, meaning that they are resistant to AI influence and cannot be replaced. These tasks, according to a 2025 economic paper on post-AI economy, include arts, literature, music, and other occupations withough tangible and quantifiable measurement of value. Not only will these tasks survive the GenAI influence, but they will also thrive in the AI era and earn a greater salary: as routine tasks are automated by AI agents, human provenance contained in artworks and musical pieces becomes greatly valuable. While website development with logical codings and measureable functions can be automated, the invaluable masterpiece of twentieth century artist Picasso cannot be placed by GenAI, as it conveys emotions and abstractions that cannot be measured with quantitative metrics.</p>
+
+                        <p>Notwithstanding that GenAI tools will enhance productivitiy through augmentation and raise the value of human provenance in arts, literature, and music, critics contend that AI alignment issues, where principles of AI models disconnect with prevelant moral and legal values of human society, pose significant risks to social orders. For instance, a variety of literature on the academic databse Arxiv reveals that AI systems marginalize minority groups with special needs and culture, because the training data lack proportional representation of the voices from the minorities. However, these critics ignore the fact that academia are already propose practical solutions to policy-makers regarding AI misalignment issues. For instance, in the prestigious academic conference NeurlPS, where scholars and policy-makers discuss AI-related issues professionally, workshops regarding pluralism in AI systems publicize position and policy papers concerning the marginalization of social groups. It is expected that social structures will be adjusted following the expert suggestions to tackle Al misalignment without causing widespread social disruptions.</p>
+
+                        <p>The wheels of technological development will continue to move forward throughout human history. Rather than rejecting such advancements, individuals must adapt to the reality by proactively acquiring necessary digital skills and knowledge in order to excel in the modern society.</p>
+                    </div>
+                </div>
+            </div>
+
         </section>
-    </div>
 
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>© 2026 Ryan Wu · Built with ♥ at HFI · <a href="https://github.com/ryanqwq-gif" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
     <script>
+        // ---- Page Navigation ----
         function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Show the selected page
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            
+
+            // Update active nav button
+            document.querySelectorAll('.nav-links button').forEach(btn => btn.classList.remove('active'));
+            const map = { page1: 'nav-about', page2: 'nav-hfi', page3: 'nav-writing' };
+            document.getElementById(map[pageId]).classList.add('active');
+
+            // Close mobile menu
+            document.getElementById('nav-links').classList.remove('open');
+
             // Scroll to top
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Re-trigger reveal animations
+            requestAnimationFrame(revealOnScroll);
         }
+
+        // ---- Essay Accordion ----
+        function toggleEssay(id) {
+            const card = document.getElementById(id);
+            card.classList.toggle('expanded');
+        }
+
+        // ---- Mobile Menu Toggle ----
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('nav-links').classList.toggle('open');
+        });
+
+        // ---- Sticky Header Shadow ----
+        window.addEventListener('scroll', () => {
+            document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 10);
+        });
+
+        // ---- Scroll-reveal ----
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.page.active .reveal');
+            reveals.forEach((el, i) => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 60) {
+                    // Stagger the animations
+                    setTimeout(() => el.classList.add('visible'), i * 80);
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
     </script>
+
 </body>
 </html>
